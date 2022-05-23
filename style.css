@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 99999;
+    /* z-index để lớn để không cho thằng nào đè lên */
+}
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    border-radius: 2px;
+    border-left: 4px solid;
+    padding: 20px 0;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s;
+}
+@keyframes slideInLeft {
+    from {
+        transform: translateX(calc(100% + 32px));
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+.toast + .toast {
+    margin-top: 10px;
+}
+.toast__icon {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.toast__body {
+    margin: 0 20px;
+}
+.toast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.toast__msg {
+    font-size: 14px;
+    color: rgb(136, 130, 130); 
+    margin-top: 4px;
+}
+.toast__close {
+    font-style: 30px;
+    color: rgba(0,0,0,0.4);
+    padding: 0 16px;
+    position: absolute;
+    top: 8px;
+    right: -4px;
+    cursor: pointer;
+}
+.toast--success {
+    border-color: rgb(17, 169, 42);
+}
+.toast--success .toast__icon {
+    color:rgb(17, 169, 42);
+}
+.toast--warning {
+    border-color: gold;
+}
+.toast--warning .toast__icon {
+    color: gold;
+}
+.toast--error {
+    border-color: red;
+}
+.toast--error .toast__icon {
+    color: red;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    /* background-color: transparent; */
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+.btn + .btn {
+    margin-left: 16px;
+}
+.btn--success {
+    background-color: #71be34;
+}
+  
+.btn--warning {
+    background-color: #ffb702;
+}
+  
+.btn--error {
+    background-color: #ff623d;
+}
